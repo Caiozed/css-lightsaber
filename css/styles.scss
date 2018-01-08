@@ -1,12 +1,81 @@
+$red : rgba(255, 0, 0, 1);
+$green : rgba(0, 255, 0, 1);
+$blue : rgba(0, 86, 214, 1);
+$yellow : rgba(255, 255, 0, 1);
 
-body{
-    background: rgba(41,0,0,1);
-    background: -moz-radial-gradient(center, ellipse cover, rgba(41,0,0,1) 0%, rgba(0,0,0,1) 100%) fixed;
+
+@mixin glow($color) {
+    -webkit-box-shadow: 0px 0px 32px 7px $color;
+    -moz-box-shadow: 0px 0px 32px 7px $color;
+    box-shadow: 0px 0px 32px 7px $color;
+}
+
+@mixin glow-animation($color) {
+    0% {box-shadow: 0px 0px 32px 7px $color;}
+    100% {box-shadow: 0px 0px 20px 6px $color;}
+}
+
+@mixin bg-color($color){
+    background: $color;
+    background: -moz-radial-gradient(center, ellipse cover, $color 0%, rgba(0,0,0,1) 100%) fixed;
     background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(41,0,0,1)), color-stop(100%, rgba(0,0,0,1))) fixed;
-    background: -webkit-radial-gradient(center, ellipse cover, rgba(41,0,0,1) 0%, rgba(0,0,0,1) 100%) fixed;
-    background: -o-radial-gradient(center, ellipse cover, rgba(41,0,0,1) 0%, rgba(0,0,0,1) 100%) fixed;
-    background: -ms-radial-gradient(center, ellipse cover, rgba(41,0,0,1) 0%, rgba(0,0,0,1) 100%) fixed;
-    background: radial-gradient(ellipse at center, rgba(41,0,0,1) 0%, rgba(0,0,0,1) 100%) fixed;
+    background: -webkit-radial-gradient(center, ellipse cover, $color 0%, rgba(0,0,0,1) 100%) fixed;
+    background: -o-radial-gradient(center, ellipse cover, $color 0%, rgba(0,0,0,1) 100%) fixed;
+    background: -ms-radial-gradient(center, ellipse cover, $color 0%, rgba(0,0,0,1) 100%) fixed;
+    background: radial-gradient(ellipse at center, $color 0%, rgba(0,0,0,1) 100%) fixed;
+}
+
+@keyframes glow-red{
+    @include glow-animation($red);
+}
+
+@keyframes glow-green{
+    @include glow-animation($green);
+}
+
+@keyframes glow-yellow{
+    @include glow-animation($yellow);
+}
+
+@keyframes glow-blue{
+    @include glow-animation($blue);
+}
+
+
+.red-bg{
+    @include bg-color(rgba(50, 0, 0, 1));
+}
+
+.blue-bg{
+    @include bg-color(rgba(0, 50, 90, 1));    
+}
+
+.green-bg{
+    @include bg-color(rgba(0, 50, 0, 1));    
+}
+
+.yellow-bg{
+    @include bg-color(rgba(50, 50, 0, 1));    
+}
+
+.red-blade{
+    @include glow($red);
+    animation: glow-red 1s ease-in 0.1s infinite alternate;
+}
+
+.green-blade{
+    @include glow($green);
+    animation: glow-green 1s ease-in 0.1s infinite alternate;
+}
+
+.yellow-blade{
+    @include glow($yellow);
+    animation: glow-yellow 1s ease-in 0.1s infinite alternate;
+}
+
+.blue-blade{
+    @include glow(blue);
+    animation: glow-blue 1s ease-in 0.1s infinite alternate;
 }
 
 audio{
@@ -16,12 +85,11 @@ audio{
 .lightsaber{
     position: fixed;
     margin: 0 auto;
-    top: 20px;
+    top: 40px;
     left: 0;
     right: 0;
     width: 150px;
     height: 800px;
-    border: 1px dashed black;
     transform: rotate(45deg);
 }
 
@@ -35,9 +103,6 @@ audio{
     z-index: -1;
     transition: all .5s;
     transform-origin: bottom;
-    -webkit-box-shadow: 0px 0px 32px 7px rgba(255,0,0,1);
-    -moz-box-shadow: 0px 0px 32px 7px rgba(255,0,0,1);
-    box-shadow: 0px 0px 32px 7px rgba(255,0,0,1);
     transform: scaleY(1);
 }
 
@@ -54,13 +119,9 @@ audio{
     margin: 0;
     .emiter{
         margin: 0 auto;
-        width: 0;
-        height: 0;
-        border-left: 40px solid black;
-        border-right: 0px solid transparent;
-        border-top: 20px solid transparent;
-        border-bottom: 0px solid transparent;
-        z-index: 0;
+        width: 30px;
+        height: 20px;
+        z-index: 1;
     }   
     
     .switch{
@@ -75,61 +136,69 @@ audio{
             margin: 0 auto;
             position: relative;
             top: 20%;
-            background: white;
             border-radius: 100%;
             z-index: 1;
+            transition: all 1s;
             .switch-btn{
                 position: relative;
                 top: 2.8px;
-                background: red;
                 margin: 0 auto;
                 border-radius: 100%;
                 width: 10px;
                 height: 10px;
+                transition: all 1s;
                 z-index: 2;
           }
         }
+    }
+    
+    .crystal-off{
+        background: black !important;
+        box-shadow: none !important;
     }
     
     .body{
         width: 20%;
         height: 60%;
         margin: 0 auto;
+        border-radius: 0 0 5px 5px;
         z-index: 0;
     }
     
     .pummel{
-        width: 0;
-        height: 0;
+        width: 30px;
+        height: 10px;
         margin: 0 auto;
+        border-radius: 0 0 8px 8px;
         z-index: 0;
-        border-left: 30px solid transparent;
-        border-right: 0px solid transparent;
-        border-top: 40px solid #484949;
-        border-bottom: 0px solid transparent;
     }
     
     .decal{
+        margin: 0 auto;
         width: 100%;
-        height: 20px;
-        z-index: 1;
+        height: 2px;
+        z-index: 2;
     }
     
     .decal-body{
         position: relative;
         width: 80%;
-        height: 90%;
+        height: 85%;
         border-radius: 0 0 5px 5px;
         margin: 0 auto;
-        background: rgba(0,0,0,1);
-        background: -moz-linear-gradient(left, rgba(0,0,0,1) 0%, rgba(28,28,28,1) 44%, rgba(102,102,102,1) 52%, rgba(28,28,28,1) 61%, rgba(0,0,0,1) 100%);
-        background: -webkit-gradient(left top, right top, color-stop(0%, rgba(0,0,0,1)), color-stop(44%, rgba(28,28,28,1)), color-stop(52%, rgba(102,102,102,1)), color-stop(61%, rgba(28,28,28,1)), color-stop(100%, rgba(0,0,0,1)));
-        background: -webkit-linear-gradient(left, rgba(0,0,0,1) 0%, rgba(28,28,28,1) 44%, rgba(102,102,102,1) 52%, rgba(28,28,28,1) 61%, rgba(0,0,0,1) 100%);
-        background: -o-linear-gradient(left, rgba(0,0,0,1) 0%, rgba(28,28,28,1) 44%, rgba(102,102,102,1) 52%, rgba(28,28,28,1) 61%, rgba(0,0,0,1) 100%);
-        background: -ms-linear-gradient(left, rgba(0,0,0,1) 0%, rgba(28,28,28,1) 44%, rgba(102,102,102,1) 52%, rgba(28,28,28,1) 61%, rgba(0,0,0,1) 100%);
-        background: linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(28,28,28,1) 44%, rgba(102,102,102,1) 52%, rgba(28,28,28,1) 61%, rgba(0,0,0,1) 100%);
         z-index: 1;
     }
+}
+
+
+#decal-steel{
+    background: rgba(0,0,0,1);
+    background: -moz-linear-gradient(left, rgba(0,0,0,1) 0%, rgba(28,28,28,1) 44%, rgba(102,102,102,1) 52%, rgba(28,28,28,1) 61%, rgba(0,0,0,1) 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(0,0,0,1)), color-stop(44%, rgba(28,28,28,1)), color-stop(52%, rgba(102,102,102,1)), color-stop(61%, rgba(28,28,28,1)), color-stop(100%, rgba(0,0,0,1)));
+    background: -webkit-linear-gradient(left, rgba(0,0,0,1) 0%, rgba(28,28,28,1) 44%, rgba(102,102,102,1) 52%, rgba(28,28,28,1) 61%, rgba(0,0,0,1) 100%);
+    background: -o-linear-gradient(left, rgba(0,0,0,1) 0%, rgba(28,28,28,1) 44%, rgba(102,102,102,1) 52%, rgba(28,28,28,1) 61%, rgba(0,0,0,1) 100%);
+    background: -ms-linear-gradient(left, rgba(0,0,0,1) 0%, rgba(28,28,28,1) 44%, rgba(102,102,102,1) 52%, rgba(28,28,28,1) 61%, rgba(0,0,0,1) 100%);
+    background: linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(28,28,28,1) 44%, rgba(102,102,102,1) 52%, rgba(28,28,28,1) 61%, rgba(0,0,0,1) 100%);
 }
 
 #black-steel{
@@ -160,4 +229,52 @@ audio{
     background: -o-radial-gradient(center, ellipse cover, rgba(255,255,255,1) 0%, rgba(0,0,0,1) 100%);
     background: -ms-radial-gradient(center, ellipse cover, rgba(255,255,255,1) 0%, rgba(0,0,0,1) 100%);
     background: radial-gradient(ellipse at center, rgba(255,255,255,1) 0%, rgba(0,0,0,1) 100%);
+}
+
+
+
+.light-text{
+    color: white;  
+    text-align: center;
+}
+.color-picker{
+     position: fixed;
+     top: 20px;
+     right: 20px;
+     width: 300px;
+     height: 200px;
+     ul{
+         list-style: none;
+         display: flex;
+         li{
+             flex: 1;
+             a{
+                display: block;
+                margin: 2px;
+                width: 30px;
+                height: 30px;
+                border-radius: 5px;  
+             }
+         }
+     }
+}
+
+.red{
+ background: $red;
+ @include glow($red);
+}
+
+.green{
+ background: $green;
+ @include glow($green);
+}
+
+.blue{
+ background: $blue;
+ @include glow($blue);
+}
+
+.yellow{
+ background: $yellow;
+ @include glow($yellow);
 }

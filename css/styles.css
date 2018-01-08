@@ -1,11 +1,82 @@
-body {
-  background: #290000;
-  background: -moz-radial-gradient(center, ellipse cover, #290000 0%, black 100%) fixed;
+@keyframes glow-red {
+  0% {
+    box-shadow: 0px 0px 32px 7px red; }
+  100% {
+    box-shadow: 0px 0px 20px 6px red; } }
+@keyframes glow-green {
+  0% {
+    box-shadow: 0px 0px 32px 7px lime; }
+  100% {
+    box-shadow: 0px 0px 20px 6px lime; } }
+@keyframes glow-yellow {
+  0% {
+    box-shadow: 0px 0px 32px 7px yellow; }
+  100% {
+    box-shadow: 0px 0px 20px 6px yellow; } }
+@keyframes glow-blue {
+  0% {
+    box-shadow: 0px 0px 32px 7px #0056d6; }
+  100% {
+    box-shadow: 0px 0px 20px 6px #0056d6; } }
+.red-bg {
+  background: #320000;
+  background: -moz-radial-gradient(center, ellipse cover, #320000 0%, black 100%) fixed;
   background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #290000), color-stop(100%, black)) fixed;
-  background: -webkit-radial-gradient(center, ellipse cover, #290000 0%, black 100%) fixed;
-  background: -o-radial-gradient(center, ellipse cover, #290000 0%, black 100%) fixed;
-  background: -ms-radial-gradient(center, ellipse cover, #290000 0%, black 100%) fixed;
-  background: radial-gradient(ellipse at center, #290000 0%, black 100%) fixed; }
+  background: -webkit-radial-gradient(center, ellipse cover, #320000 0%, black 100%) fixed;
+  background: -o-radial-gradient(center, ellipse cover, #320000 0%, black 100%) fixed;
+  background: -ms-radial-gradient(center, ellipse cover, #320000 0%, black 100%) fixed;
+  background: radial-gradient(ellipse at center, #320000 0%, black 100%) fixed; }
+
+.blue-bg {
+  background: #00325a;
+  background: -moz-radial-gradient(center, ellipse cover, #00325a 0%, black 100%) fixed;
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #290000), color-stop(100%, black)) fixed;
+  background: -webkit-radial-gradient(center, ellipse cover, #00325a 0%, black 100%) fixed;
+  background: -o-radial-gradient(center, ellipse cover, #00325a 0%, black 100%) fixed;
+  background: -ms-radial-gradient(center, ellipse cover, #00325a 0%, black 100%) fixed;
+  background: radial-gradient(ellipse at center, #00325a 0%, black 100%) fixed; }
+
+.green-bg {
+  background: #003200;
+  background: -moz-radial-gradient(center, ellipse cover, #003200 0%, black 100%) fixed;
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #290000), color-stop(100%, black)) fixed;
+  background: -webkit-radial-gradient(center, ellipse cover, #003200 0%, black 100%) fixed;
+  background: -o-radial-gradient(center, ellipse cover, #003200 0%, black 100%) fixed;
+  background: -ms-radial-gradient(center, ellipse cover, #003200 0%, black 100%) fixed;
+  background: radial-gradient(ellipse at center, #003200 0%, black 100%) fixed; }
+
+.yellow-bg {
+  background: #323200;
+  background: -moz-radial-gradient(center, ellipse cover, #323200 0%, black 100%) fixed;
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #290000), color-stop(100%, black)) fixed;
+  background: -webkit-radial-gradient(center, ellipse cover, #323200 0%, black 100%) fixed;
+  background: -o-radial-gradient(center, ellipse cover, #323200 0%, black 100%) fixed;
+  background: -ms-radial-gradient(center, ellipse cover, #323200 0%, black 100%) fixed;
+  background: radial-gradient(ellipse at center, #323200 0%, black 100%) fixed; }
+
+.red-blade {
+  -webkit-box-shadow: 0px 0px 32px 7px red;
+  -moz-box-shadow: 0px 0px 32px 7px red;
+  box-shadow: 0px 0px 32px 7px red;
+  animation: glow-red 1s ease-in 0.1s infinite alternate; }
+
+.green-blade {
+  -webkit-box-shadow: 0px 0px 32px 7px lime;
+  -moz-box-shadow: 0px 0px 32px 7px lime;
+  box-shadow: 0px 0px 32px 7px lime;
+  animation: glow-green 1s ease-in 0.1s infinite alternate; }
+
+.yellow-blade {
+  -webkit-box-shadow: 0px 0px 32px 7px yellow;
+  -moz-box-shadow: 0px 0px 32px 7px yellow;
+  box-shadow: 0px 0px 32px 7px yellow;
+  animation: glow-yellow 1s ease-in 0.1s infinite alternate; }
+
+.blue-blade {
+  -webkit-box-shadow: 0px 0px 32px 7px blue;
+  -moz-box-shadow: 0px 0px 32px 7px blue;
+  box-shadow: 0px 0px 32px 7px blue;
+  animation: glow-blue 1s ease-in 0.1s infinite alternate; }
 
 audio {
   display: none; }
@@ -13,12 +84,11 @@ audio {
 .lightsaber {
   position: fixed;
   margin: 0 auto;
-  top: 20px;
+  top: 40px;
   left: 0;
   right: 0;
   width: 150px;
   height: 800px;
-  border: 1px dashed black;
   transform: rotate(45deg); }
 
 .blade {
@@ -31,9 +101,6 @@ audio {
   z-index: -1;
   transition: all .5s;
   transform-origin: bottom;
-  -webkit-box-shadow: 0px 0px 32px 7px red;
-  -moz-box-shadow: 0px 0px 32px 7px red;
-  box-shadow: 0px 0px 32px 7px red;
   transform: scaleY(1); }
 
 .blade-off {
@@ -48,13 +115,9 @@ audio {
   margin: 0; }
   .hilt .emiter {
     margin: 0 auto;
-    width: 0;
-    height: 0;
-    border-left: 40px solid black;
-    border-right: 0px solid transparent;
-    border-top: 20px solid transparent;
-    border-bottom: 0px solid transparent;
-    z-index: 0; }
+    width: 30px;
+    height: 20px;
+    z-index: 1; }
   .hilt .switch {
     width: 25%;
     height: 8%;
@@ -67,50 +130,54 @@ audio {
       margin: 0 auto;
       position: relative;
       top: 20%;
-      background: white;
       border-radius: 100%;
-      z-index: 1; }
+      z-index: 1;
+      transition: all 1s; }
       .hilt .switch .switch-ring .switch-btn {
         position: relative;
         top: 2.8px;
-        background: red;
         margin: 0 auto;
         border-radius: 100%;
         width: 10px;
         height: 10px;
+        transition: all 1s;
         z-index: 2; }
+  .hilt .crystal-off {
+    background: black !important;
+    box-shadow: none !important; }
   .hilt .body {
     width: 20%;
     height: 60%;
     margin: 0 auto;
+    border-radius: 0 0 5px 5px;
     z-index: 0; }
   .hilt .pummel {
-    width: 0;
-    height: 0;
+    width: 30px;
+    height: 10px;
     margin: 0 auto;
-    z-index: 0;
-    border-left: 30px solid transparent;
-    border-right: 0px solid transparent;
-    border-top: 40px solid #484949;
-    border-bottom: 0px solid transparent; }
+    border-radius: 0 0 8px 8px;
+    z-index: 0; }
   .hilt .decal {
+    margin: 0 auto;
     width: 100%;
-    height: 20px;
-    z-index: 1; }
+    height: 2px;
+    z-index: 2; }
   .hilt .decal-body {
     position: relative;
     width: 80%;
-    height: 90%;
+    height: 85%;
     border-radius: 0 0 5px 5px;
     margin: 0 auto;
-    background: black;
-    background: -moz-linear-gradient(left, black 0%, #1c1c1c 44%, #666666 52%, #1c1c1c 61%, black 100%);
-    background: -webkit-gradient(left top, right top, color-stop(0%, black), color-stop(44%, #1c1c1c), color-stop(52%, #666666), color-stop(61%, #1c1c1c), color-stop(100%, black));
-    background: -webkit-linear-gradient(left, black 0%, #1c1c1c 44%, #666666 52%, #1c1c1c 61%, black 100%);
-    background: -o-linear-gradient(left, black 0%, #1c1c1c 44%, #666666 52%, #1c1c1c 61%, black 100%);
-    background: -ms-linear-gradient(left, black 0%, #1c1c1c 44%, #666666 52%, #1c1c1c 61%, black 100%);
-    background: linear-gradient(to right, black 0%, #1c1c1c 44%, #666666 52%, #1c1c1c 61%, black 100%);
     z-index: 1; }
+
+#decal-steel {
+  background: black;
+  background: -moz-linear-gradient(left, black 0%, #1c1c1c 44%, #666666 52%, #1c1c1c 61%, black 100%);
+  background: -webkit-gradient(left top, right top, color-stop(0%, black), color-stop(44%, #1c1c1c), color-stop(52%, #666666), color-stop(61%, #1c1c1c), color-stop(100%, black));
+  background: -webkit-linear-gradient(left, black 0%, #1c1c1c 44%, #666666 52%, #1c1c1c 61%, black 100%);
+  background: -o-linear-gradient(left, black 0%, #1c1c1c 44%, #666666 52%, #1c1c1c 61%, black 100%);
+  background: -ms-linear-gradient(left, black 0%, #1c1c1c 44%, #666666 52%, #1c1c1c 61%, black 100%);
+  background: linear-gradient(to right, black 0%, #1c1c1c 44%, #666666 52%, #1c1c1c 61%, black 100%); }
 
 #black-steel {
   background: black;
@@ -138,5 +205,51 @@ audio {
   background: -o-radial-gradient(center, ellipse cover, white 0%, black 100%);
   background: -ms-radial-gradient(center, ellipse cover, white 0%, black 100%);
   background: radial-gradient(ellipse at center, white 0%, black 100%); }
+
+.light-text {
+  color: white;
+  text-align: center; }
+
+.color-picker {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 300px;
+  height: 200px; }
+  .color-picker ul {
+    list-style: none;
+    display: flex; }
+    .color-picker ul li {
+      flex: 1; }
+      .color-picker ul li a {
+        display: block;
+        margin: 2px;
+        width: 30px;
+        height: 30px;
+        border-radius: 5px; }
+
+.red {
+  background: red;
+  -webkit-box-shadow: 0px 0px 32px 7px red;
+  -moz-box-shadow: 0px 0px 32px 7px red;
+  box-shadow: 0px 0px 32px 7px red; }
+
+.green {
+  background: lime;
+  -webkit-box-shadow: 0px 0px 32px 7px lime;
+  -moz-box-shadow: 0px 0px 32px 7px lime;
+  box-shadow: 0px 0px 32px 7px lime; }
+
+.blue {
+  background: #0056d6;
+  -webkit-box-shadow: 0px 0px 32px 7px #0056d6;
+  -moz-box-shadow: 0px 0px 32px 7px #0056d6;
+  box-shadow: 0px 0px 32px 7px #0056d6; }
+
+.yellow {
+  background: yellow;
+  -webkit-box-shadow: 0px 0px 32px 7px yellow;
+  -moz-box-shadow: 0px 0px 32px 7px yellow;
+  box-shadow: 0px 0px 32px 7px yellow; }
 
 /*# sourceMappingURL=styles.css.map */
