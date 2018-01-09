@@ -89,6 +89,14 @@ audio{
     display: none;
 }
 
+a{
+    text-decoration: none;
+    color: white;
+    &:hover{
+       text-decoration: underline; 
+    }
+}
+
 // Lightsaber master class
 .lightsaber{
     position: fixed;
@@ -255,7 +263,9 @@ audio{
      top: 20px;
      right: 20px;
      width: 300px;
-     height: 200px;
+     height: 150px;
+     padding: 10px;
+     background: rgba(71, 70, 70, 0.5);
      ul{
          list-style: none;
          display: flex;
@@ -270,6 +280,12 @@ audio{
              }
          }
      }
+}
+
+.author{
+    font-size: 12px !important;
+    text-align: center;
+    color: #a8a8a8;
 }
 
 // Color selection buttons

@@ -81,6 +81,12 @@
 audio {
   display: none; }
 
+a {
+  text-decoration: none;
+  color: white; }
+  a:hover {
+    text-decoration: underline; }
+
 .lightsaber {
   position: fixed;
   margin: 0 auto;
@@ -215,7 +221,9 @@ audio {
   top: 20px;
   right: 20px;
   width: 300px;
-  height: 200px; }
+  height: 150px;
+  padding: 10px;
+  background: rgba(71, 70, 70, 0.5); }
   .color-picker ul {
     list-style: none;
     display: flex; }
@@ -227,6 +235,11 @@ audio {
         width: 30px;
         height: 30px;
         border-radius: 5px; }
+
+.author {
+  font-size: 12px !important;
+  text-align: center;
+  color: #a8a8a8; }
 
 .red {
   background: red;
