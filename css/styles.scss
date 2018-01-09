@@ -1,9 +1,11 @@
+// Color variables 
 $red : rgba(255, 0, 0, 1);
 $green : rgba(0, 255, 0, 1);
 $blue : rgba(0, 86, 214, 1);
 $yellow : rgba(255, 255, 0, 1);
 
 
+// Mixins setup
 @mixin glow($color) {
     -webkit-box-shadow: 0px 0px 32px 7px $color;
     -moz-box-shadow: 0px 0px 32px 7px $color;
@@ -25,6 +27,7 @@ $yellow : rgba(255, 255, 0, 1);
     background: radial-gradient(ellipse at center, $color 0%, rgba(0,0,0,1) 100%) fixed;
 }
 
+// Animations
 @keyframes glow-red{
     @include glow-animation($red);
 }
@@ -42,6 +45,7 @@ $yellow : rgba(255, 255, 0, 1);
 }
 
 
+// Background colors
 .red-bg{
     @include bg-color(rgba(50, 0, 0, 1));
 }
@@ -58,6 +62,8 @@ $yellow : rgba(255, 255, 0, 1);
     @include bg-color(rgba(50, 50, 0, 1));    
 }
 
+
+// Blade colors
 .red-blade{
     @include glow($red);
     animation: glow-red 1s ease-in 0.1s infinite alternate;
@@ -78,10 +84,12 @@ $yellow : rgba(255, 255, 0, 1);
     animation: glow-blue 1s ease-in 0.1s infinite alternate;
 }
 
+// Hide audio tags
 audio{
     display: none;
 }
 
+// Lightsaber master class
 .lightsaber{
     position: fixed;
     margin: 0 auto;
@@ -92,6 +100,7 @@ audio{
     height: 800px;
     transform: rotate(45deg);
 }
+
 
 .blade{
     position: relative;
@@ -110,6 +119,8 @@ audio{
     transform: scaleY(0);
 }
 
+
+// Hilt styling
 .hilt{
     top: -25px;
     position: relative;
@@ -190,7 +201,7 @@ audio{
     }
 }
 
-
+// Hilt gradients
 #decal-steel{
     background: rgba(0,0,0,1);
     background: -moz-linear-gradient(left, rgba(0,0,0,1) 0%, rgba(28,28,28,1) 44%, rgba(102,102,102,1) 52%, rgba(28,28,28,1) 61%, rgba(0,0,0,1) 100%);
@@ -237,6 +248,8 @@ audio{
     color: white;  
     text-align: center;
 }
+
+// Side bar color picker
 .color-picker{
      position: fixed;
      top: 20px;
@@ -259,6 +272,7 @@ audio{
      }
 }
 
+// Color selection buttons
 .red{
  background: $red;
  @include glow($red);
@@ -277,4 +291,25 @@ audio{
 .yellow{
  background: $yellow;
  @include glow($yellow);
+}
+
+// Text color
+.red-text{
+    color: $red !important;
+    text-shadow: 0px 0px 31px $red;
+}
+
+.green-text{
+    color: $green !important;
+    text-shadow: 0px 0px 31px $green;
+}
+
+.blue-text{
+    color: $blue !important;
+    text-shadow: 0px 0px 31px $blue;
+}
+
+.yellow-text{
+    color: $yellow !important;
+    text-shadow: 0px 0px 31px $yellow;
 }

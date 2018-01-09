@@ -1,13 +1,58 @@
 $(document).ready(function(){
+    // Variables setup
     var on_sound = $(".onaudio");
     var off_sound = $(".offaudio");
     var bg = $("body");
     var btn = $(".switch-btn");
     var hole = $("#crystal-chamber");
-    console.log(hole);
+    var text = $(".light-text");
+    
+    // Audio tag volume reduction
     on_sound.prop("volume", 0.1);
     off_sound.prop("volume", 0.1);
+    
+    // Blade interactable button 
     $(".switch-btn").on("click", function(){
+        bladeSwitch();
+    });
+    
+    // Change color of the elements to red
+    $("#red").on("click", function(){
+        changeBladeColor("red");
+    });
+    
+    // Change color of the elements to blue
+    $("#blue").on("click", function(){
+       changeBladeColor("blue");
+    });
+    
+    // Change color of the elements to green
+    $("#green").on("click", function(){
+       changeBladeColor("green");
+    });
+    
+    // Change color of the elements to yellow
+    $("#yellow").on("click", function(){
+        changeBladeColor("yellow");
+    });
+    
+    // Change color of the elements to some color
+    function changeBladeColor(color){
+        var blade =  $(".blade");
+        btn.removeClass();
+        btn.addClass("switch-btn "+color);
+        hole.removeClass();
+        hole.addClass("switch-ring "+color);
+        bg.removeClass();
+        bg.addClass(color+"-bg");
+        text.removeClass();
+        text.addClass("light-text "+color+"-text");
+        blade.removeClass();
+        blade.addClass("blade").addClass(color+"-blade");
+    };
+    
+    // Blade on/off switch
+    function bladeSwitch(){
         if($(".blade").hasClass("blade-off")){
           on_sound.trigger("play");
           hole.removeClass("crystal-off");
@@ -18,53 +63,5 @@ $(document).ready(function(){
           btn.addClass("crystal-off");
        }
        $(".blade").toggleClass("blade-off");
-    });
-    
-    $("#red").on("click", function(){
-        var blade =  $(".blade");
-        btn.removeClass();
-        btn.addClass("switch-btn red");
-        hole.removeClass();
-        hole.addClass("switch-ring red");
-        bg.removeClass();
-        bg.addClass("red-bg");
-        blade.removeClass();
-        blade.addClass("blade").addClass("red-blade");
-    });
-    
-    $("#blue").on("click", function(){
-        var blade =  $(".blade");
-        btn.removeClass();
-        btn.addClass("switch-btn blue");
-        hole.removeClass();
-        hole.addClass("switch-ring blue");
-        bg.removeClass();
-        bg.addClass("blue-bg");
-        blade.removeClass();
-        blade.addClass("blade").addClass("blue-blade");
-    });
-    
-     $("#green").on("click", function(){
-        var blade =  $(".blade");
-        btn.removeClass();
-        btn.addClass("switch-btn green");
-        hole.removeClass();
-        hole.addClass("switch-ring green");
-        bg.removeClass();
-        bg.addClass("green-bg");
-        blade.removeClass();
-        blade.addClass("blade").addClass("green-blade");
-    });
-    
-     $("#yellow").on("click", function(){
-        var blade =  $(".blade");
-        btn.removeClass();
-        btn.addClass("switch-btn yellow");
-        hole.removeClass();
-        hole.addClass("switch-ring yellow");
-        bg.removeClass();
-        bg.addClass("yellow-bg");
-        blade.removeClass();
-        blade.addClass("blade").addClass("yellow-blade");
-    });
+    }
 });

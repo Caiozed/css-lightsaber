@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- HTML5 Hello world by kirupa - http://www.kirupa.com/html5/getting_your_feet_wet_html5_pg1.htm -->
 <html lang="en-us">
 
 <head>
@@ -14,8 +13,11 @@
 
 <body class="red-bg">
 	<div id="content">
+		<h1 class="light-text red-text">Lightsaber</h1>
+		<h3 class="light-text red-text">May the force be with you!</h3>
+		<!-- COLOR PICKER SIDEBAR -->
 		<div class="color-picker">
-			<h3 class="light-text">Choose your color</h3>
+			<h3 class="light-text red-text">Choose your color</h3>
 			<ul>
 				<li><a class="red" id="red"></a></li>
 				<li><a class="blue" id="blue"></a></li>
@@ -23,11 +25,14 @@
 				<li><a class="yellow" id="yellow"></a></li>
 			</ul>
 		</div>
+		
+		<!-- LIGHTSABER  BLOCK -->
 		<div class="lightsaber">
 			<div class="blade red-blade"></div>
 			<div class="hilt">
 				<div class="emiter" id="steel"></div>
 				<div class="switch" id="steel">
+					<!-- INTERACTABLE SWITCH -->
 					<div class="switch-ring" id="radial-steel">
 						<div class="switch-btn red"></div>
 					</div>
@@ -36,6 +41,7 @@
 					<div class="switch-ring red" id="crystal-chamber">
 					</div>
 				</div>
+				<!-- HILT DECALS -->
 				<div class="body" id="steel">
 					<div class="decal" id="decal-steel"></div>
 					<div class="decal"></div>
@@ -54,10 +60,12 @@
 					<div class="decal" id="decal-steel"></div>
 					<div class="decal-body" id="decal-steel"></div>
 				</div>
+				<!-- BODY DECAL -->
 				<div class="pummel" id="decal-steel"></div>
 			</div>
 		</div>
 	</div>
+	<!-- HIDDEN AUDIO TAG -->
 	<audio  class="onaudio" src="sounds/on.wav"  controls></audio>
 	<audio  class="offaudio" src="sounds/off.mp3"  controls></audio>
 </body>
