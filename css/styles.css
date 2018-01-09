@@ -216,6 +216,9 @@ a {
   color: white;
   text-align: center; }
 
+h1, h3 {
+  transition: all .5s; }
+
 .color-picker {
   position: fixed;
   top: 20px;

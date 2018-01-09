@@ -51,15 +51,15 @@ $yellow : rgba(255, 255, 0, 1);
 }
 
 .blue-bg{
-    @include bg-color(rgba(0, 50, 90, 1));    
+    @include bg-color(rgba(0, 50, 90, 1));   
 }
 
 .green-bg{
-    @include bg-color(rgba(0, 50, 0, 1));    
+    @include bg-color(rgba(0, 50, 0, 1));  
 }
 
 .yellow-bg{
-    @include bg-color(rgba(50, 50, 0, 1));    
+    @include bg-color(rgba(50, 50, 0, 1)); 
 }
 
 
@@ -255,6 +255,11 @@ a{
 .light-text{
     color: white;  
     text-align: center;
+}
+
+// Text transitions
+h1,h3{
+    transition: all .5s;
 }
 
 // Side bar color picker
